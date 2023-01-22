@@ -10,17 +10,13 @@ export default function Current(props) {
   let [temp, setTemp] = useState("");
   let [condition, setCondition] = useState("");
   let [imageCondition, setImageCondition] = useState("");
-  let [lat, setLat] = useState("");
-  let [lon, setLon] = useState("");
+
   let apiKey = "0t0f733f3454c9aobbda64f6025e69d0";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.city1}&key=${apiKey}`;
 
   axios.get(apiUrl).then(getInfo);
 
   function getInfo(response) {
-    setLat(response.data.coordinates.latitude);
-    setLon(response.data.coordinates.longitude);
-
     setCity(response.data.city);
     setWind(Math.round(response.data.wind.speed));
     setHumidity(response.data.temperature.humidity);
@@ -74,7 +70,7 @@ export default function Current(props) {
 
       <div id="forecast"></div>
       <div class="coded">
-        <a id="linkGithub" href="https://github.com/Mitra-rk/myWeatherAPP3">
+        <a id="linkGithub" href="https://github.com/Mitra-rk/ch2">
           Open-Source code
         </a>
         <span> by Mitra Enayatollahi</span>
